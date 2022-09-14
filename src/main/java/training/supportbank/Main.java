@@ -9,6 +9,12 @@ public class Main {
 
         CsvReader csv = new CsvReader();
         csv.test();
-        System.out.println("Test!");
+
+        //Transaction one = new Transaction("john","mark",100,"narrative",29/12/2014);
+
+
+
+
+       // System.out.println(one.amount);
     }
 }
