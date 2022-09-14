@@ -20,7 +20,7 @@ public class CsvReader {
         //reads one line at a time
 
         while ((nextLine = reader.readNext()) != null) {
-
+// test
 
             //System.out.println(nextLine[1]);
             // creates transaction objects from nextline and saves to current obj
