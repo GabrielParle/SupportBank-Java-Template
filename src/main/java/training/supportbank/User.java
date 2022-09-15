@@ -5,6 +5,7 @@ public class User {
     public String userName;
     private float balance = 0;
 
+    //constructor function for username
     public User (String userName){
         this.userName = userName;
     }
