@@ -16,7 +16,7 @@ public class CsvReader {
 
         String[] nextLine;
         //creates a list of transaction objects.
-        List<Transaction> allTransactions = new ArrayList<>();
+        ArrayList<Transaction> allTransactions = new ArrayList<>();
         //reads one line at a time
 
         while ((nextLine = reader.readNext()) != null) {
@@ -27,18 +27,15 @@ public class CsvReader {
             Transaction current = new Transaction(nextLine[2],nextLine[1],nextLine[4],nextLine[3],nextLine[0]);
             // saves current obj to alltransactions list.
             allTransactions.add(current);
+            //using the forEach loop to loop through the file
 //            for (String token : nextLine) {
-//                System.out.print(token+ "@");
+//                System.out.print(token);
 //            }
             System.out.print("\n");
-
         }
 
-        System.out.println(allTransactions.get(10).toUser + "last");
-
+        System.out.println(allTransactions.get(10).toUser);
+        System.out.println(allTransactions.get(10).fromUser);
+        System.out.println(allTransactions.get(10).date);
     }
-
-
-
-
 }
