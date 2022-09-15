@@ -2,11 +2,11 @@ package training.supportbank;
 
 import com.opencsv.CSVReader;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class CsvReader {
@@ -20,7 +20,8 @@ public class CsvReader {
         //reads one line at a time
 
         while ((nextLine = reader.readNext()) != null) {
-// test
+
+            // test
 
             //System.out.println(nextLine[1]);
             // creates transaction objects from nextline and saves to current obj
@@ -33,9 +34,24 @@ public class CsvReader {
 //            }
             System.out.print("\n");
         }
+//        System.out.println(allTransactions.get(10).toUser);
+//        System.out.println(allTransactions.get(10).fromUser);
+//        System.out.println(allTransactions.get(10).date);
 
-        System.out.println(allTransactions.get(10).toUser);
-        System.out.println(allTransactions.get(10).fromUser);
-        System.out.println(allTransactions.get(10).date);
+        //create an arraylist of users
+        ArrayList<User> allUsers = new ArrayList<>();
+
+        //
+         allTransactions.stream().forEach((transaction)-> {
+
+               List<String> userNameList = allUsers.stream().map((user) -> user.userName).collect(Collectors.toList());
+                    if (!userNameList.contains(transaction.toUser)){
+                        allUsers.add(new User(transaction.toUser));
+                };
+             //lets create a boolean check from the alltransactions toUser field and check against allUser ArrayList
+
+                 });
+             System.out.println(allUsers.get(2).userName);
+
     }
 }
