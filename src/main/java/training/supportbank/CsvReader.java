@@ -62,13 +62,13 @@ public class CsvReader {
              //lets create a boolean check from the alltransactions toUser field and check against allUser ArrayList
 
                  });
-<<<<<<< HEAD
+
 
          CalcualateBalances.calcBalance(allTransactions, allUsers);
             allUsers.forEach(user -> System.out.println(user.userName + ' '+ user.getBalance()));
-=======
+
              //System.out.println(allUsers.get(2).userName);
->>>>>>> 2dbd7a758ba10e078cbd971fd3ea64d66b3291c2
+
 
     }//comment
 }
