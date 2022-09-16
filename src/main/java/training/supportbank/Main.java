@@ -7,8 +7,8 @@ import java.text.ParseException;
 import java.util.Scanner;
 import java.util.*;
 
-
 public class Main {
+    private static final Logger LOGGER = LogManager.getLogger();
     public static void main(String args[]) throws IOException, ParseException {
         // Your code here!
 
@@ -17,7 +17,6 @@ public class Main {
         //while loop for user inout request
         boolean running = true;
         while(running) {
-
           running = usi.requestUserInput();
         }
     }
