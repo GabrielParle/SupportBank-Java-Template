@@ -4,6 +4,7 @@ import com.opencsv.CSVReader;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -30,7 +31,7 @@ public class CsvReader {
 
             //System.out.println(nextLine[1]);
             // creates transaction objects from nextline and saves to current obj
-            Transaction current = new Transaction(nextLine[2],nextLine[1],(Double.parseDouble(nextLine[4])),nextLine[3], sdf.parse(nextLine[0]));
+            Transaction current = new Transaction(nextLine[2],nextLine[1],(new  BigDecimal(nextLine[4])),nextLine[3], sdf.parse(nextLine[0]));
             // saves current obj to alltransactions list.
             System.out.println(current.amount);
 
@@ -62,7 +63,9 @@ public class CsvReader {
              //lets create a boolean check from the alltransactions toUser field and check against allUser ArrayList
 
                  });
-            // System.out.println(allUsers.forEach(user -> user.userName));
+
+         CalcualateBalances.calcBalance(allTransactions, allUsers);
+            allUsers.forEach(user -> System.out.println(user.userName + ' '+ user.getBalance()));
 
     }
 }

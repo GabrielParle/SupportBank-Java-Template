@@ -1,20 +1,25 @@
 package training.supportbank;
 
+import java.math.BigDecimal;
+
 public class User {
 
     public String userName;
-    private float balance = 0;
+    private BigDecimal balance = BigDecimal.valueOf(0);
 
     public User (String userName){
         this.userName = userName;
     }
 
 
-    public float getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(float updateBalance){
-        balance += updateBalance;
+    public void setBalanceAdd(BigDecimal updateBalance){
+        balance = (balance.add(updateBalance));
+    }
+    public void setBalanceMinus(BigDecimal updateBalance){
+        balance = (balance.subtract(updateBalance));
     }
 }
