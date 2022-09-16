@@ -28,7 +28,6 @@ public class CsvReader {
         while ((nextLine = reader.readNext()) != null) {
 
             // test
-
             //System.out.println(nextLine[1]);
             // creates transaction objects from nextline and saves to current obj
             Transaction current = new Transaction(nextLine[2],nextLine[1],(new  BigDecimal(nextLine[4])),nextLine[3], sdf.parse(nextLine[0]));
@@ -54,7 +53,7 @@ public class CsvReader {
          allTransactions.stream().forEach((transaction)-> {
 
                List<String> userNameList = allUsers.stream().map((user) -> user.userName).collect(Collectors.toList());
-                    if (!userNameList.contains(transaction.toUser)){
+               if (!userNameList.contains(transaction.toUser)){
                         allUsers.add(new User(transaction.toUser));
                 }
              if (!userNameList.contains(transaction.fromUser)){
@@ -63,9 +62,13 @@ public class CsvReader {
              //lets create a boolean check from the alltransactions toUser field and check against allUser ArrayList
 
                  });
+<<<<<<< HEAD
 
          CalcualateBalances.calcBalance(allTransactions, allUsers);
             allUsers.forEach(user -> System.out.println(user.userName + ' '+ user.getBalance()));
+=======
+             //System.out.println(allUsers.get(2).userName);
+>>>>>>> 2dbd7a758ba10e078cbd971fd3ea64d66b3291c2
 
-    }
+    }//comment
 }

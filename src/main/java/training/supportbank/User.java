@@ -7,6 +7,7 @@ public class User {
     public String userName;
     private BigDecimal balance = BigDecimal.valueOf(0);
 
+    //constructor function for username
     public User (String userName){
         this.userName = userName;
     }
