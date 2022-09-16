@@ -15,13 +15,16 @@ import java.util.stream.Collectors;
 
 
 public class CsvReader {
+
+    private ArrayList<Transaction> allTransactions = new ArrayList<>();
+    private ArrayList<User> allUsers = new ArrayList<>();
     //test
     public void test() throws IOException, ParseException {
         CSVReader reader = new CSVReader(new FileReader("src/main/Transactions2014.csv"), ',','\'',1);
 
         String[] nextLine;
         //creates a list of transaction objects.
-        ArrayList<Transaction> allTransactions = new ArrayList<>();
+
         //reads one line at a time
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -32,7 +35,7 @@ public class CsvReader {
             // creates transaction objects from nextline and saves to current obj
             Transaction current = new Transaction(nextLine[2],nextLine[1],(new  BigDecimal(nextLine[4])),nextLine[3], sdf.parse(nextLine[0]));
             // saves current obj to alltransactions list.
-            System.out.println(current.amount);
+           // System.out.println(current.amount);
 
             allTransactions.add(current);
             //using the forEach loop to loop through the file
@@ -47,7 +50,7 @@ public class CsvReader {
 //        System.out.println(allTransactions.get(10).date);
 
         //create an arraylist of users
-        ArrayList<User> allUsers = new ArrayList<>();
+
 
         //
          allTransactions.stream().forEach((transaction)-> {
@@ -64,11 +67,19 @@ public class CsvReader {
                  });
 
 
-         CalcualateBalances.calcBalance(allTransactions, allUsers);
-            allUsers.forEach(user -> System.out.println(user.userName + ' '+ user.getBalance()));
+        // CalcualateBalances.calcBalance(allTransactions, allUsers);
+           // allUsers.forEach(user -> System.out.println(user.userName + ' '+ user.getBalance()));
 
              //System.out.println(allUsers.get(2).userName);
 
+      //  ListAccount.listingPrint(allTransactions, allUsers, "Jon A");
+
 
     }//comment
+    public ArrayList<Transaction> getTransactionsList() {
+        return allTransactions;
+    }
+    public ArrayList<User> getAllUsers(){
+        return allUsers;
+    }
 }

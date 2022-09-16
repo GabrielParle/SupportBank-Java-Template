@@ -16,6 +16,7 @@ public class CalcualateBalances {
                     }
                 }));
             });
+            userList.forEach(user -> System.out.println(user.userName + ' '+ user.getBalance()));
         }
 
 }

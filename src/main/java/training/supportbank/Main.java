@@ -12,11 +12,13 @@ public class Main {
     public static void main(String args[]) throws IOException, ParseException {
         // Your code here!
 
-        CsvReader csv = new CsvReader();
-        csv.test();
+
+        Userinput usi = new Userinput();
         //while loop for user inout request
-        while(true) {
-            Userinput.requestUserInput();
+        boolean running = true;
+        while(running) {
+
+          running = usi.requestUserInput();
         }
     }
     //Transaction one = new Transaction("john","mark",100,"narrative",29/12/2014);
