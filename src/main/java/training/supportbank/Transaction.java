@@ -7,11 +7,11 @@ import java.util.Date;
 public class Transaction {
     String toUser;
     String fromUser;
-    Double amount;
+    BigDecimal amount;
     String narrative;
     Date date;
 
-    public Transaction(String toUser, String fromUser, Double amount, String narrative, Date date){
+    public Transaction(String toUser, String fromUser, BigDecimal amount, String narrative, Date date){
         this.toUser = toUser;
         this.fromUser = fromUser;
         this.amount = amount;
