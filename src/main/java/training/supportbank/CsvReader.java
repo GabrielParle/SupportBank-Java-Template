@@ -16,11 +16,9 @@ import java.util.stream.Collectors;
 
 public class CsvReader {
 
-    private ArrayList<Transaction> allTransactions = new ArrayList<>();
-    private ArrayList<User> allUsers = new ArrayList<>();
-    //test
-    public void test() throws IOException, ParseException {
-        CSVReader reader = new CSVReader(new FileReader("src/main/Transactions2014.csv"), ',','\'',1);
+
+    public void csvListGenerator(ArrayList<Transaction> allTransactions, ArrayList<User> allUsers,String fileName) throws IOException, ParseException {
+        CSVReader reader = new CSVReader(new FileReader(fileName), ',','\'',1);
 
         String[] nextLine;
         //creates a list of transaction objects.
@@ -76,10 +74,5 @@ public class CsvReader {
 
 
     }//comment
-    public ArrayList<Transaction> getTransactionsList() {
-        return allTransactions;
-    }
-    public ArrayList<User> getAllUsers(){
-        return allUsers;
-    }
+
 }
